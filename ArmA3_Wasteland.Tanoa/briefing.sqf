@@ -337,7 +337,7 @@ player createDiaryRecord ["changelog",
 [
 "v0.9b",
 "
-<br/>[Initial release] - Welcome to Altis!
+<br/>[Initial release] - Welcome to Tanoa!
 "
 ]];
 
@@ -438,7 +438,7 @@ player createDiaryRecord ["infos",
 [
 "Player hotkeys",
 "
-<br/>List of default player hotkeys:
+<br/>List of player hotkeys and functions:
 <br/>
 <br/>" + NKEYNAME(41) + " (open player menu)
 <br/>" + NKEYNAME(207) + " (toggle earplugs)

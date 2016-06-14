@@ -22,23 +22,32 @@ spawnActionHandle = (_this select 1) spawn
 {
 	disableSerialization;
 
-	private ["_switch", "_data"];
+	private ["_switch", "_data", "_donatorLevel"];
 	_switch = _this select 0;
 	_data = [_this select 1, false];
+	_donatorLevel = player getVariable ["donatorLevel", 0];
 
 	if (isNil "playerData_resetPos") then
 	{
 		// Deal with money here
 		_baseMoney = ["A3W_startingMoney", 100] call getPublicVar;
-		player setVariable ["cmoney", _baseMoney, true];
-
-		if (["A3W_survivalSystem"] call isConfigOn) then
+		switch (_donatorLevel) do
 		{
-			[MF_ITEMS_CANNED_FOOD, 1] call mf_inventory_add;
-			[MF_ITEMS_WATER, 1] call mf_inventory_add;
+			case 1: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 2: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 3: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 4: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 5: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 6: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 7: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 8: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			case 9: { player setVariable ["cmoney", _baseMoney + 0, true]; [MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add; [MF_ITEMS_WATER, 0] call mf_inventory_add; [MF_ITEMS_REPAIR_KIT, 0] call mf_inventory_add; };
+			default { player setVariable ["cmoney", _baseMoney, true]; };
 		};
 
-		[MF_ITEMS_REPAIR_KIT, 1] call mf_inventory_add;
+		//[MF_ITEMS_CANNED_FOOD, 0] call mf_inventory_add;
+		//[MF_ITEMS_WATER, 0] call mf_inventory_add;
+		//[MF_ITEMS_REPAIR_KIT, 1] call mf_inventory_add;
 	};
 
 	if (cbChecked ((uiNamespace getVariable "RespawnSelectionDialog") displayCtrl respawn_Preload_Checkbox)) then

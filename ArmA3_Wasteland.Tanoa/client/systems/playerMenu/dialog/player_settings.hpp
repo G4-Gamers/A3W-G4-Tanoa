@@ -2,6 +2,7 @@
 // * This project is licensed under the GNU Affero GPL v3. Copyright © 2014 A3Wasteland.com *
 // ******************************************************************************************
 #include "player_sys.sqf"
+#define COLOR_TRANSPARENT { 0, 0, 0, 0 }
 
 class playerSettings {
 
@@ -12,7 +13,17 @@ class playerSettings {
 
 	class controlsBackground {
 
-		class MainBG : IGUIBack {
+		class Tablet: w_RscPicture
+		{
+			idc = -1;
+			text = "panel\infopanel.paa";
+			x = -0.00;
+		 	y = -0.15;
+			w = 1;
+			h = 1.28;
+		};
+		
+		/*class MainBG : IGUIBack {
 			idc = -1;
 			colorText[] = {1, 1, 1, 1};
 			colorBackground[] = {0,0,0,0.6};
@@ -63,6 +74,13 @@ class playerSettings {
 			x = 0.022; y = 0.32;
 			w = 0.04 / (4/3); h = 0.04;
 		};
+		
+		class serverLogo : w_RscPicture {
+			idc = -1;
+			text = "mapconfig\logo.paa";
+			x = 0.225; y = 0.20;
+			w = 0.32 / (4/3); h = 0.32;
+		};
 
 		class waterText : w_RscText {
 			idc = water_text;
@@ -94,7 +112,7 @@ class playerSettings {
 			sizeEx = 0.025;
 			x = 0.03; y = 0.40;
 			w = 0.3; h = 0.02;
-		};
+		};*/
 
 		class uptimeText : w_RscText {
 			idc = uptime_text;
@@ -109,85 +127,105 @@ class playerSettings {
 
 		class itemList : w_Rsclist {
 			idc = item_list;
-			x = 0.49; y = 0.185;
-			w = 0.235; h = 0.325;
+			x = 0.5125; y = 0.228; //[0.5125,0.228,0.2455,0.3455]
+			w = 0.2455; h = 0.3455;
 		};
 
 		class DropButton : w_RscButton {
 			idc = -1;
 			text = "Drop";
-			onButtonClick = "[1] execVM 'client\systems\playerMenu\itemfnc.sqf'";
-			x = 0.610; y = 0.525;
-			w = 0.116; h = 0.033 * safezoneH;
+			onButtonClick = "[1] execVM 'client\systems\playerMenu\itemfnc.sqf'"; //[0.647954,0.616,0.1,0.13]
+			x = 0.647954; y = 0.616;
+			w = 0.1; h = 0.13;
 		};
 
 		class UseButton : w_RscButton {
 			idc = -1;
 			text = "Use";
-			onButtonClick = "[0] execVM 'client\systems\playerMenu\itemfnc.sqf'";
-			x = 0.489; y = 0.525;
-			w = 0.116; h = 0.033 * safezoneH;
+			onButtonClick = "[0] execVM 'client\systems\playerMenu\itemfnc.sqf'"; //[0.522538,0.616,0.1,0.13]
+			x = 0.522538; y = 0.616;
+			w = 0.1; h = 0.13;
 		};
 
 		class moneyInput: w_RscCombo {
 			idc = money_value;
-			x = 0.610; y = 0.618;
-			w = .116; h = .030;
+			x = 0.77; y = 0.4; //[0.77,0.4,0.116,0.03]
+			w = 0.116; h = 0.03;
 		};
 
 		class DropcButton : w_RscButton {
 			idc = -1;
-			text = "Drop";
-			onButtonClick = "[] execVM 'client\systems\playerMenu\dropMoney.sqf'";
-			x = 0.489; y = 0.60;
-			w = 0.116; h = 0.033 * safezoneH;
+			text = "Drop $";
+			onButtonClick = "[] execVM 'client\systems\playerMenu\dropMoney.sqf'"; //[0.776629,0.44708,0.1,0.13]
+			x = 0.776629; y = 0.44708;
+			w = 0.1; h = 0.13;
 		};
 
 		class CloseButton : w_RscButton {
 			idc = close_button;
 			text = "Close";
-			onButtonClick = "[] execVM 'client\systems\playerMenu\closePlayerMenu.sqf'";
-			x = 0.02; y = 0.66;
-			w = 0.125; h = 0.033 * safezoneH;
+			colorText[] = {1, 1, 1, 1};
+			colorBackground[] = {1, 0, 0, 1};
+			onButtonClick = "[] execVM 'client\systems\playerMenu\closePlayerMenu.sqf'"; //[0.7625,0.608,0.1,0.127273]
+			x = 0.776669; y = 0.616; //[0.776669,0.616,0.1,0.13]
+			w = 0.1; h = 0.13;
 		};
 
 		class GroupsButton : w_RscButton {
 			idc = groupButton;
-			text = "Group Management";
-			onButtonClick = "[] execVM 'client\systems\groups\loadGroupManagement.sqf'";
-			x = 0.158; y = 0.66;
-			w = 0.225; h = 0.033 * safezoneH;
+			text = "Group";
+			onButtonClick = "[] execVM 'client\systems\groups\loadGroupManagement.sqf'"; //[0.135,0.228,0.1,0.13]
+			x = 0.125; y = 0.236;
+			w = 0.1; h = 0.13;
 		};
 
 		class btnDistanceNear : w_RscButton {
 			idc = -1;
 			text = "Near";
-			onButtonClick = "setViewDistance 1100;";
-			x = 0.02; y = 0.43;
-			w = 0.125; h = 0.033 * safezoneH;
+			onButtonClick = "setViewDistance 1000;"; //[0.125,0.616,0.1,0.13]
+			x = 0.125; y = 0.616;
+			w = 0.1; h = 0.13;
 		};
 
 		class btnDistanceMedium : w_RscButton {
 			idc = -1;
-			text = "Medium";
-			onButtonClick = "setViewDistance 2200;";
-			x = 0.02; y = 0.5;
-			w = 0.125; h = 0.033 * safezoneH;
+			text = "Med";
+			onButtonClick = "setViewDistance 1500;"; //[0.2275,0.612,0.1,0.127273]
+			x = 0.2425; y = 0.616;
+			w = 0.1; h = 0.13;
 		};
 
 		class btnDistanceFar : w_RscButton {
 			idc = -1;
 			text = "Far";
-			onButtonClick = "setViewDistance 3300;";
-			x = 0.02; y = 0.57;
-			w = 0.125; h = 0.033 * safezoneH;
+			onButtonClick = "setViewDistance 2200;"; //[0.361023,0.616,0.1,0.13]
+			x = 0.361023; y = 0.616;
+			w = 0.1; h = 0.13;
 		};
 
-		class btnDistanceInsane : w_RscButton {
-			text = "Insane";
-			onButtonClick = "setViewDistance 5000;";
-			x = 0.02; y = 0.60;
+/*		class btnDistanceCustom : w_RscButton {
+			idc = -1;
+			text = "Custom";
+			onButtonClick = "[] execVM 'addons\VIP\organized_arsenal.sqf'";
+			x = 0.158; y = 0.57;
 			w = 0.125; h = 0.033 * safezoneH;
+		};
+*/
+		class btnDistanceEffects : w_RscButton {
+			idc = -1;
+			text = "Effects";
+			onButtonClick = "[] execVM 'addons\disableEnvironment\disableEnvironment.sqf'"; //[0.2725,0.496,0.2,0.06]
+			x = 0.2725; y = 0.490;
+			w = 0.2; h = 0.06; // * safezoneH;
+		};
+
+
+			class G4armaInfoButton : w_RscButton {
+			idc = -1;
+			text = "G4 Info";
+			onButtonClick = "[] execVM 'addons\G4armaInfo\loadG4armaInfo.sqf'"; //[0.135,0.416,0.1,0.13]
+			x = 0.125; y = 0.424;
+			w = 0.1; h = 0.13;
 		};
 	};
 };

@@ -10,6 +10,7 @@
 class BIS_fnc_effectKilledAirDestruction {};
 class BIS_fnc_effectKilledSecondaries {};
 class BIS_fnc_objectVar {};
+class bis_fnc_arsenal_condition {};
 
 // do NOT whitelist BIS_fnc_execVM or BIS_fnc_spawn, it will allow exploits!
 
@@ -55,5 +56,11 @@ class A3W_fnc_setLockState {};
 class A3W_fnc_setVectorUpAndDir { jip = 1; };
 class A3W_fnc_setVehicleAmmoDef {};
 class A3W_fnc_unflip {};
+
+// Other third-party
 class APOC_srv_startAirdrop { allowedTargets = 2; };
 class JTS_FNC_SENT {};
+class A3W_fnc_aj_s_refreshZeus {};
+class ModuleHQ_F {};
+class A3W_fnc_fireworks {};
+class A3W_fnc_airDrop {};

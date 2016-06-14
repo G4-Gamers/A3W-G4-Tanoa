@@ -6,13 +6,38 @@
 
 if (!isServer) exitWith {};
 
-private ["_UID", "_bank", "_moneySaving", "_crossMap", "_environment", "_result", "_data", "_location", "_dataTemp", "_ghostingTimer", "_secs", "_columns", "_pvar", "_pvarG"];
+private ["_UID", "_bank", "_moneySaving", "_donatorLevel", "_donatorEnabled", "_crossMap", "_environment", "_customUniformEnabled", "_uniformNumber", "_result", "_data", "_location", "_dataTemp", "_ghostingTimer", "_secs", "_columns", "_pvar", "_pvarG"];
 _UID = _this;
 
 _bank = 0;
+_donatorLevel = 0;
+_uniformNumber = 0;
 _moneySaving = ["A3W_moneySaving"] call isConfigOn;
 _crossMap = ["A3W_extDB_playerSaveCrossMap"] call isConfigOn;
 _environment = ["A3W_extDB_Environment", "normal"] call getPublicVar;
+_donatorEnabled = ["A3W_donatorEnabled"] call isConfigOn;
+_customUniformEnabled = ["A3W_customUniformEnabled"] call isConfigOn;
+
+
+if (_donatorEnabled) then
+{
+	_result = ["getPlayerDonatorLevel:" + _UID, 2] call extDB_Database_async;
+
+	if (count _result > 0) then
+	{
+		_donatorLevel = _result select 0;
+	};
+};
+
+/*if (_customUniformEnabled) then
+{
+	_result = ["getPlayerCustomUniform:" + _UID, 2] call extDB_Database_async;
+
+	if (count _result > 0) then
+	{
+		_uniformNumber = _result select 0;
+	};
+};*/
 
 if (_moneySaving) then
 {
@@ -38,7 +63,9 @@ if (!_result) then
 	_data =
 	[
 		["PlayerSaveValid", false],
-		["BankMoney", _bank]
+		["BankMoney", _bank],
+		["DonatorLevel", _donatorLevel],
+		["CustomUniform", _uniformNumber]
 	];
 }
 else
@@ -155,6 +182,8 @@ else
 
 	_data append _dataTemp;
 	_data pushBack ["BankMoney", _bank];
+	_data pushBack ["DonatorLevel", _donatorLevel];
+	_data pushBack ["CustomUniform", _uniformNumber];
 };
 
 // before returning player data, restore global player stats if applicable

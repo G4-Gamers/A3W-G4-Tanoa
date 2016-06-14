@@ -22,6 +22,7 @@ A3W_fnc_inGameUIActionEvent = "client\functions\fn_inGameUIActionEvent.sqf" call
 A3W_fnc_titleTextMessage = "client\functions\titleTextMessage.sqf" call mf_compile;
 addWeaponInventory = "client\functions\addWeaponInventory.sqf" call mf_compile;
 canForceSaveVehicle = "client\functions\canForceSaveVehicle.sqf" call mf_compile;
+canatmAirdrop = "addons\ATM_airdrop\atm_airdrop.sqf" call mf_compile;
 canPushPlaneBack = "client\functions\canPushPlaneBack.sqf" call mf_compile;
 canPushVehicleOnFoot = "client\functions\canPushVehicleOnFoot.sqf" call mf_compile;
 canPushWatercraft = "client\functions\canPushWatercraft.sqf" call mf_compile;
@@ -57,14 +58,21 @@ unitHandleDamage = "client\functions\unitHandleDamage.sqf" call mf_compile;
 updateTerritoryMarkers = "territory\client\updateTerritoryMarkers.sqf" call mf_compile;
 vehicleSideCfg = "client\functions\vehicleSideCfg.sqf" call mf_compile;
 weaponDisassembledEvent = "client\functions\weaponDisassembledEvent.sqf" call mf_compile;
+deleteBeacon = "client\items\beacon\deleteBeacon.sqf" call mf_compile;
+
+//Custom Compiles
+fn_rewardLoyalty = "client\functions\fn_rewardLoyalty.sqf" call mf_compile;
 
 // Player details and actions
 loadPlayerMenu = "client\systems\playerMenu\init.sqf" call mf_compile;
+//playerCustomUniform = "client\functions\playerCustomUniform.sqf" call mf_compile;
 playerSpawn = "client\functions\playerSpawn.sqf" call mf_compile;
 playerSetup = "client\functions\playerSetup.sqf" call mf_compile;
 playerSetupStart = "client\functions\playerSetupStart.sqf" call mf_compile;
 playerSetupGear = "client\functions\playerSetupGear.sqf" call mf_compile;
 playerSetupEnd = "client\functions\playerSetupEnd.sqf" call mf_compile;
+classes = "addons\classes\classes.sqf" call mf_compile;
+//supporters = "addons\supporters\organized_arsenal.sqf" call mf_compile;
 spawnAction = "client\functions\spawnAction.sqf" call mf_compile;
 spawnInTown = "client\functions\spawnInTown.sqf" call mf_compile;
 spawnOnBeacon = "client\functions\spawnOnBeacon.sqf" call mf_compile;
@@ -84,6 +92,7 @@ teamkillAction = "client\functions\doTeamKillAction.sqf" call mf_compile;
 teamkillMessage = "client\functions\showTeamKillMessage.sqf" call mf_compile;
 
 // Dialog compiles
+loadG4armaInfo = "addons\G4armaInfo\loadG4armaInfo.sqf" call mf_compile;
 client_respawnDialog = "client\systems\playerMenu\dialog\loadRespawnDialog.sqf" call mf_compile;
 fn_respawnTimer = "client\systems\scoreboard\fn_respawnTimer.sqf" call mf_compile;
 loadGeneralStore = "client\systems\generalStore\loadGenStore.sqf" call mf_compile;

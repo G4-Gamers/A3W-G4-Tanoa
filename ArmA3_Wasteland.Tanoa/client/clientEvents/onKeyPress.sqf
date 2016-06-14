@@ -53,6 +53,31 @@ switch (true) do
 			["You've taken out your earplugs.", 5] call mf_notify_client;
 		};
 	};
+	
+	// Emergency Eject - Del Key
+	case (_key in A3W_customKeys_Eject):
+	{	
+		[-9, false, true, ""] execVM "client\actions\forceEject.sqf";
+	};
+	// Holster /Unholster Weapon - H Key
+	case (_key in A3W_customKeys_holsterWeapon):
+	{
+		if (currentweapon player != "") then
+		{
+			player action ["SwitchWeapon", player, player, 100];
+			["You holster your weapon!", 5] call mf_notify_client;
+		}
+		else
+		{
+			player action ["SwitchWeapon", player, player, 0];
+			["You Unholster your weapon!", 5] call mf_notify_client;
+		};
+	};
+	// Zeus Key
+	case ( _key in actionKeys "CuratorInterface" && (getPlayerUID player in call zeusAdmins)):
+	{
+	        execVM "addons\aj\zeus\refreshzeus.sqf";
+	};
 };
 
 // ********** Action keys **********
@@ -138,6 +163,12 @@ if (!_handled && _key in (actionKeys "UavView" + actionKeys "UavViewToggle")) th
 	{
 		_handled = true;
 	};
+};
+
+// Disable Zeus ping
+if (!_handled && _key in actionKeys "CuratorInterface" && {!(getPlayerUID player in call zeusAdmins)}) then
+{
+    _handled = true;
 };
 
 _handled

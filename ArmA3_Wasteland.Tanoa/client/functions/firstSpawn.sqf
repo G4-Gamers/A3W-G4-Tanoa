@@ -8,7 +8,15 @@
 
 client_firstSpawn = true;
 
-[] execVM "client\functions\welcomeMessage.sqf";
+[] execVM "addons\G4armaInfo\loadG4armaInfo.sqf";
+//[] execVM "client\functions\welcomeMessage.sqf";
+
+//Loyalty Reward System - if this is the first spawn start the loyalty-timer
+if(format["%1",firstspawn] == format["%1","1"]) then 
+{
+	[] spawn fn_rewardLoyalty;
+	firstspawn = 0;
+};
 
 player addEventHandler ["Take",
 {

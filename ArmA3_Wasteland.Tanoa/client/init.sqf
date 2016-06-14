@@ -25,6 +25,12 @@ groupManagmentActive = false;
 pvar_PlayerTeamKiller = [];
 doCancelAction = false;
 
+//Loyalty Reward System Variable
+firstspawn = 1;
+
+//AJ Beacondetector
+BeaconScanInProgress = false;
+
 //Initialization Variables
 playerCompiledScripts = false;
 playerSetupComplete = false;
@@ -140,12 +146,19 @@ if (["A3W_survivalSystem"] call isConfigOn) then
 };
 
 [] spawn playerSpawn;
+// g4 uniforms
+//[] spawn playerCustomUniform;
 
 A3W_scriptThreads pushBack execVM "addons\fpsFix\vehicleManager.sqf";
 A3W_scriptThreads pushBack execVM "addons\Lootspawner\LSclientScan.sqf";
 [] execVM "client\functions\drawPlayerIcons.sqf";
-[] execVM "addons\camera\functions.sqf";
-[] execVM "addons\UAV_Control\functions.sqf";
+
+// Non-A3W addons
+[] execVM "addons\camera\functions.sqf";			// Improved admin camera addon
+[] execVM "addons\UAV_Control\functions.sqf";		// Protected UAV addon
+[] execVM "addons\cctv\functions.sqf";				// CCTV Camera addon
+[] execVM "addons\disableThermal\disablethermal.sqf";  //disable thermal vision
+
 if (!isDedicated and hasInterface) then 
 {           
         call compileFinal preprocessFileLineNumbers "addons\statusBar\statusbar.sqf";

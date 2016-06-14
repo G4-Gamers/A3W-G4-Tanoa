@@ -51,12 +51,39 @@ if (_packetName == "BIS_fnc_MP_packet") then
 			"BIS_fnc_effectKilledAirDestruction",
 			"BIS_fnc_effectKilledAirDestructionStage2",
 			"BIS_fnc_effectKilledSecondaries",
-			"BIS_fnc_objectVar"/*,
+			"BIS_fnc_objectVar",
+			"bis_fnc_setidentity",
+			"A3W_fnc_unflip",
+			"ModuleHQ_F",
+			"a3w_fnc_lock"
 			"JTS_FNC_SENT"*/ // PM Compact by JTS
 
 			// NOTE: You also need to whitelist individual functions in client\CfgRemoteExec_fnc.hpp
 		];
 
+	//allow zeus functions	
+	if (!_whitelisted) then
+	{
+		scopeName "zeusFunc";
+		private ["_zeusFuncCfg", "_zeusFuncPrefix", "_i", "_catCfg", "_j"];
+
+		_zeusFuncCfg = configfile >> "CfgFunctions" >> "A3_Functions_F_Curator";
+		_zeusFuncPrefix = getText (_zeusFuncCfg >> "tag") + "_fnc_";
+
+		for "_i" from 0 to (count _zeusFuncCfg - 1) do
+		{
+			_catCfg = _zeusFuncCfg select _i;
+			for "_j" from 0 to (count _catCfg - 1) do
+			{
+				if (_function == _zeusFuncPrefix + configName (_catCfg select _j)) then
+				{
+					_whitelisted = true;
+					breakOut "zeusFunc";
+				};
+			};
+		};
+	};
+		
 		if (!_whitelisted) then
 		{
 			{
@@ -68,7 +95,16 @@ if (_packetName == "BIS_fnc_MP_packet") then
 			forEach
 			[
 				"A3W_fnc_",
-				"mf_remote_"
+				"mf_remote_",
+				"BIS_fnc_spawn",
+				//"BH_fnc_",
+				"APOC_srv_",
+				"hint",
+				"BIS_fnc_arsenal",
+				"ModuleHQ_F",
+				"bis_fnc_arsenal_condition",
+				"DFyre_fnc_"
+				//"bis_fnc_setidentity"
 			];
 		};
 	};

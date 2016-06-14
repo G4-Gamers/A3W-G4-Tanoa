@@ -32,7 +32,9 @@ if !(_unit isUniformAllowed _uniform) then
 		["U_BG_Guerilla3_1", "U_OG_Guerilla3_1", "U_IG_Guerilla3_1"],
 		["U_BG_Guerilla3_2", "U_OG_Guerilla3_2", "U_IG_Guerilla3_2"],
 		["U_BG_leader", "U_OG_leader", "U_IG_leader"],
-		//["U_O_OfficerUniform_ocamo", "U_I_OfficerUniform"],
+		["U_O_CombatUniform_ocamo", "U_I_CombatUniform"],
+		["U_O_CombatUniform_oucamo", "U_IG_Guerilla1_1"],
+		["U_O_SpecopsUniform_ocamo", "U_IG_leader"],		
 		["U_B_HeliPilotCoveralls", "U_I_HeliPilotCoveralls"],
 		["U_B_Protagonist_VR", "U_O_Protagonist_VR", "U_I_Protagonist_VR"]
 	];

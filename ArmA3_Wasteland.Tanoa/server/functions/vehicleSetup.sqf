@@ -111,6 +111,19 @@ switch (true) do
 	case (_class isKindOf "Plane_Fighter_03_base_F" && _brandNew):
 	{
 		_vehicle addMagazine "300Rnd_20mm_shells";
+		_vehicle removeWeaponTurret ["missiles_SCALPEL",[-1]];
+	};
+	case (_class isKindOf "O_Truck_03_device_F"):
+	{
+		[netId _vehicle, "A3W_fnc_setupServiceVehicle", true] call A3W_fnc_MP;
+	};
+	case (_class isKindOf "B_Heli_Attack_01_F"):
+	{
+		// Remove OP DAGR missles, replace with DAR missles
+		//_vehicle removeWeaponGlobal "missiles_DAGR";
+		//_vehicle addWeaponGlobal "missiles_DAR";
+		//_vehicle addMagazineGlobal "24Rnd_missiles";
+		//_vehicle addMagazineGlobal "24Rnd_missiles";
 	};
 };
 

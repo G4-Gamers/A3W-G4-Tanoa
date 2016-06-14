@@ -15,7 +15,7 @@
 #define successMissionColor "#17FF41"
 #define subTextColor "#FFFFFF"
 
-#define AI_GROUP_SMALL 4
+#define AI_GROUP_SMALL 5
 #define AI_GROUP_MEDIUM 7
 #define AI_GROUP_LARGE 10
 

@@ -6,7 +6,7 @@
 //	@file Author: MercyfulFate, [404] Deadbeat, [404] Costlyy, TAW_Tonic (original)
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
-
+/*
 #define TIME_DELTA 1 //seconds between each "check"
 #define HEALTH_TIME (60*5) //seconds till death
 #define HUNGER_TIME (60*60) //seconds till starving
@@ -100,3 +100,4 @@ mf_survival_handle3 = [] spawn
 };
 
 { A3W_scriptThreads pushBack _x } forEach [mf_survival_handle1, mf_survival_handle2, mf_survival_handle3];
+*/

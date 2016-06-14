@@ -6,6 +6,18 @@
 //	@file Author: [404] Deadbeat, [GoT] JoSchaap, AgentRev
 //	@file Description: The main init.
 
+// player2 bounty system
+diag_log(format['%1: %2: %3','P2DEBUG','MissionFile\init.sqf','Started']);
+
+//Start server side of player2 bounty system
+if (isServer) then {
+	[] execVM "\p2bounty\init.sqf";
+} else {
+	//Start client side of player2 bounty system
+	call compile preprocessFileLineNumbers "p2b_clientInit.sqf";
+};
+// player2 bounty system end
+
 #include "debugFlag.hpp"
 
 #ifdef A3W_DEBUG
@@ -49,7 +61,7 @@ if (!isDedicated) then
 	{
 		if (hasInterface) then // Normal player
 		{
-			9999 cutText ["Welcome to A3Wasteland, please wait for your client to initialize", "BLACK", 0.01];
+			9999 cutText ["Welcome to G4 WastelandEvolved, please wait for your client to initialize", "BLACK", 0.01];
 
 			waitUntil {!isNull player};
 			player setVariable ["playerSpawning", true, true];
@@ -93,7 +105,16 @@ if (hasInterface || isServer) then
 	[] execVM "addons\lsd_nvg\init.sqf";
 	[] execVM "addons\stickyCharges\init.sqf";
 	if (isNil "drn_DynamicWeather_MainThread") then { drn_DynamicWeather_MainThread = [] execVM "addons\scripts\DynamicWeatherEffects.sqf" };
+	// Non-A3W addons
+	[] execVM "addons\laptop\init.sqf";				// Addon for hack laptop mission
+	[] execVM "addons\vactions\functions.sqf";			// Micovery vehicle actions
+	[] execVM "addons\APOC_Airdrop_Assistance\init.sqf";		// Airdrop
+	[] execVM "addons\scripts\resupply_actions.sqf";		//Resupply bitches 
+	[] execVM "addons\HvT\HvT.sqf"; 				// High Value Target
+	[] execVM "addons\Grenades\initGrenades.sqf"; 			// Toxic Gas Addon
 };
+// Cashe
+[1000,-1,false,100,1000,1000]execvm "cache\main.sqf";
 
 // Remove line drawings from map
 (createTrigger ["EmptyDetector", [0,0,0], false]) setTriggerStatements
@@ -102,3 +123,15 @@ if (hasInterface || isServer) then
 	"thisTrigger setTriggerTimeout [30,30,30,false]",
 	"{if (markerShape _x == 'POLYLINE') then {deleteMarker _x}} forEach allMapMarkers"
 ];
+
+//Fireworks Code subject to change
+/*
+A3W_fnc_fireworks = compile preprocessFileLineNumbers "GRAD_fireworks\callFireworks.sqf";
+_nul = [] execVM "GRAD_fireworks\fireworks.sqf";
+
+// START POSITION ARRAY
+startpositions = [boat1,boat2,boat3];
+startpositions2 = [boat4,boat5,boat6];
+startpositions3 = [boat8,boat9,boat10];
+*/
+
