@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=846;
+		nextID=854;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1816.2435,39.877892,3916.8018};
-		dir[]={0.17628662,-0.31288216,0.93329322};
-		up[]={0.0580712,0.94979459,0.30743974};
-		aside[]={0.98262829,-1.4802208e-007,-0.18560496};
+		pos[]={10187.482,501.1684,11801.422};
+		dir[]={-0.19887778,-0.88406587,0.42295137};
+		up[]={-0.37618953,0.46735856,0.8000375};
+		aside[]={0.90495515,4.8821676e-009,0.42552313};
 	};
 };
 binarizationWanted=0;
@@ -104,7 +104,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="A3Wasteland Tanoa v1.3"; // it would be great if you could keep "A3" in the name, like "ABC A3Wasteland" instead of "ABC Wasteland" :)
+		briefingName="A3Wasteland Tanoa v1.3";
 		overviewText="Wasteland survival sandbox by Team Wasteland - visit A3Wasteland.com for more details";
 		resistanceWest=0;
 		timeOfChanges=3e+038;
@@ -122,7 +122,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=687;
+		items=695;
 		class Item0
 		{
 			dataType="Group";
@@ -2967,7 +2967,7 @@ class Mission
 						angles[]={0,3.5270867,0};
 					};
 					side="Civilian";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						init="0 = [this] spawn A3W_fnc_setupStoreNPC";
@@ -2975,12 +2975,14 @@ class Mission
 					};
 					id=185;
 					type="C_man_1_1_F";
+					atlOffset=0.51183748;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=184;
+			atlOffset=0.51183748;
 		};
 		class Item40
 		{
@@ -3037,12 +3039,14 @@ class Mission
 					};
 					id=189;
 					type="C_man_1_1_F";
+					atlOffset=0.15400529;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=188;
+			atlOffset=0.15400529;
 		};
 		class Item42
 		{
@@ -3068,12 +3072,14 @@ class Mission
 					};
 					id=191;
 					type="C_man_1_1_F";
+					atlOffset=0.2036581;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=190;
+			atlOffset=0.2036581;
 		};
 		class Item43
 		{
@@ -3328,14 +3334,14 @@ class Mission
 					};
 					id=207;
 					type="C_man_1_1_F";
-					atlOffset=0.00014734268;
+					atlOffset=0.00014710426;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=206;
-			atlOffset=0.00014734268;
+			atlOffset=0.00014710426;
 		};
 		class Item51
 		{
@@ -4190,7 +4196,7 @@ class Mission
 			type="Empty";
 			colorName="ColorWhite";
 			id=294;
-			atlOffset=14.711804;
+			atlOffset=11.30024;
 		};
 		class Item136
 		{
@@ -4260,7 +4266,7 @@ class Mission
 			type="Empty";
 			colorName="ColorWhite";
 			id=301;
-			atlOffset=34.474277;
+			atlOffset=38.203781;
 		};
 		class Item143
 		{
@@ -12338,7 +12344,7 @@ class Mission
 			name="LandConvoy_1_2";
 			type="Empty";
 			colorName="ColorEAST";
-			angle=291.61597;
+			angle=291.61594;
 			id=838;
 		};
 		class Item680
@@ -12358,7 +12364,7 @@ class Mission
 			name="LandConvoy_2_1";
 			type="Empty";
 			colorName="ColorEAST";
-			angle=224.24199;
+			angle=224.24196;
 			id=840;
 			atlOffset=-243.9091;
 		};
@@ -12369,7 +12375,7 @@ class Mission
 			name="LandConvoy_2_2";
 			type="Empty";
 			colorName="ColorEAST";
-			angle=214.23398;
+			angle=214.23395;
 			id=841;
 			atlOffset=-8428.7207;
 		};
@@ -12380,7 +12386,7 @@ class Mission
 			name="LandConvoy_2_3";
 			type="Empty";
 			colorName="ColorEAST";
-			angle=216.73581;
+			angle=216.73578;
 			id=842;
 		};
 		class Item684
@@ -12390,7 +12396,7 @@ class Mission
 			name="LandConvoy_3_1";
 			type="Empty";
 			colorName="ColorEAST";
-			angle=146.91399;
+			angle=146.91396;
 			id=843;
 		};
 		class Item685
@@ -12410,8 +12416,92 @@ class Mission
 			name="LandConvoy_3_3";
 			type="Empty";
 			colorName="ColorEAST";
-			angle=154.67572;
+			angle=154.67569;
 			id=845;
+		};
+		class Item687
+		{
+			dataType="Marker";
+			position[]={3401.1528,22.039898,3062.7808};
+			name="Roadblock_1";
+			type="Empty";
+			colorName="ColorUNKNOWN";
+			angle=148.33769;
+			id=846;
+		};
+		class Item688
+		{
+			dataType="Marker";
+			position[]={5006.8521,19.484314,3981.0444};
+			name="Roadblock_2";
+			type="Empty";
+			colorName="ColorUNKNOWN";
+			angle=73.83815;
+			id=847;
+			atlOffset=2.7102718;
+		};
+		class Item689
+		{
+			dataType="Marker";
+			position[]={11016.043,63.086914,3871.3032};
+			name="Roadblock_3";
+			type="Empty";
+			colorName="ColorUNKNOWN";
+			angle=359.41122;
+			id=848;
+			atlOffset=-33.636307;
+		};
+		class Item690
+		{
+			dataType="Marker";
+			position[]={9856.2725,76.089333,9697.4629};
+			name="Roadblock_4";
+			type="Empty";
+			colorName="ColorUNKNOWN";
+			angle=118.57089;
+			id=849;
+		};
+		class Item691
+		{
+			dataType="Marker";
+			position[]={8451.708,163.70752,12553.971};
+			name="Roadblock_5";
+			type="Empty";
+			colorName="ColorUNKNOWN";
+			angle=345.96732;
+			id=850;
+			atlOffset=0.70906067;
+		};
+		class Item692
+		{
+			dataType="Marker";
+			position[]={2387.0176,43.0555,11709.501};
+			name="Roadblock_6";
+			type="Empty";
+			colorName="ColorUNKNOWN";
+			angle=307.52856;
+			id=851;
+			atlOffset=-3.8146973e-006;
+		};
+		class Item693
+		{
+			dataType="Marker";
+			position[]={7622.0601,-1.5821867e-031,11868.626};
+			name="Sniper_1";
+			type="Empty";
+			colorName="ColorCIV";
+			id=852;
+			atlOffset=-150.21484;
+		};
+		class Item694
+		{
+			dataType="Marker";
+			position[]={10153.22,399.80493,11793.146};
+			name="Sniper_2";
+			type="Empty";
+			colorName="ColorCIV";
+			id=853;
+			atlOffset=-4.2859192;
 		};
 	};
 };

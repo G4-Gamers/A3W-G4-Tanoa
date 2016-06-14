@@ -55,7 +55,7 @@ if (_packetName == "BIS_fnc_MP_packet") then
 			"bis_fnc_setidentity",
 			"A3W_fnc_unflip",
 			"ModuleHQ_F",
-			"a3w_fnc_lock"
+			"a3w_fnc_lock",
 			"JTS_FNC_SENT"*/ // PM Compact by JTS
 
 			// NOTE: You also need to whitelist individual functions in client\CfgRemoteExec_fnc.hpp
